@@ -87,8 +87,8 @@ main .blocktext {
 main .offers {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  /* gap: 15px; */
+  /* justify-content: space-between; */
+  gap: 10px;
 }
 
 .link {
@@ -318,10 +318,46 @@ main .offers .offerUnique {
   }
 
   .link {
-    width: 30%;
+    width: 32%;
   }
 
   .offer .container {
     padding: 30px 0px;
+  }
+}
+
+@media (max-width: 550px) {
+  .link {
+    width: 48%;
+  }
+
+  .offer .container {
+    flex-direction: column;
+  }
+
+  .offer .pictures > img {
+    width: 80%;
+    height: 300px;
+    margin-right: 5px;
+  }
+
+  .offer .pictures {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .offer .pictures .mini > img {
+    width: 60px;
+    height: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  .offer .informations {
+    width: 100%;
+
+    padding: 10px;
   }
 }
