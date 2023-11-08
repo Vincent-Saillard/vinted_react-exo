@@ -1,0 +1,67 @@
+header {
+  background-color: white;
+  display: flex;
+}
+
+header .container {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  height: 50px;
+}
+
+header .research {
+  height: 40px;
+  width: 630px;
+  background-color: rgb(242, 242, 242);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0px 10px;
+  gap: 15px;
+}
+
+header input {
+  width: 100%;
+  height: 24px;
+  border: none;
+  background-color: rgb(0, 0, 0, 0);
+  font-size: 14px;
+  outline: none;
+}
+::placeholder {
+  color: rgb(196, 196, 196);
+}
+
+header .glass {
+  height: 18px;
+}
+
+header .connect {
+  display: flex;
+  gap: 20px;
+}
+
+header .buttons {
+  width: 115px;
+  line-height: 30px;
+  border: 1px solid #007681;
+  text-align: center;
+  font-size: 12px;
+  color: #007681;
+  border-radius: 5px;
+}
+
+header button {
+  height: 30px;
+  width: 115px;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  background-color: #007681;
+  border: none;
+}
