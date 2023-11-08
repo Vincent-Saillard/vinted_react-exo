@@ -358,7 +358,10 @@ main .offers .offerUnique {
 
   .offer .informations {
     width: 100%;
-
     padding: 10px;
+  }
+
+  .offer .pictures .mini {
+    flex-direction: column;
   }
 }
