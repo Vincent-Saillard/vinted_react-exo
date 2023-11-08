@@ -1,10 +1,327 @@
+/* --------GENERAL--------- */
+/* --------GENERAL--------- */
+/* --------GENERAL--------- */
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 40px;
+  color: #171717;
+  font-weight: 500;
 }
 
 .container {
   width: 1300px;
   margin: 0 auto;
-  padding: 0px 20px;
-  border: 1px red solid;
+  /* display: flex; */
+  /* border: 1px red solid; */
+}
+
+/* --------HOME--------- */
+/* --------HOME--------- */
+/* --------HOME--------- */
+main {
+  display: flex;
+}
+
+main .blocktext {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: space-around;
+}
+
+main .blocktext button {
+  height: 45px;
+  border-radius: 5px;
+  background-color: #007681;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+main .blocktext button:hover {
+  cursor: pointer;
+}
+
+main .banner {
+  display: flex;
+}
+
+main .banner img:first-of-type {
+  height: 450px;
+  width: 100vw;
+  padding: 0px;
+  object-fit: cover;
+  object-position: top;
+  position: absolute;
+  z-index: -2;
+}
+
+main .banner img:last-of-type {
+  /* border: 1px solid blue; */
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 870px;
+}
+
+main .container {
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+main .blocktext {
+  height: 270px;
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  margin-bottom: 150px;
+}
+
+main .offers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* gap: 15px; */
+}
+
+.link {
+  width: 19%;
+  text-decoration: none;
+}
+
+main .offers .offerUnique {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* flex: 1; */
+  /* flex-shrink: 0; */
+  margin-bottom: 30px;
+  /* height: 465px; */
+  /* border: 1px solid green; */
+}
+
+.offerUnique .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #999999;
+  font-size: 12px;
+}
+
+.offerUnique .user img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.offerUnique .productpic {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.offerUnique .price {
+  font-size: 14px;
+  color: black;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.offerUnique .size,
+.offerUnique .brand {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+/* ----------OFFER------------- */
+/* ----------OFFER------------- */
+/* ----------OFFER------------- */
+
+.offer {
+  background-color: #ebedee;
+  display: flex;
+}
+
+.offer .container {
+  display: flex;
+  padding: 30px 20px;
+  justify-content: space-between;
+}
+
+.offer .pictures {
+  display: flex;
+}
+
+.offer .pictures > img {
+  width: 450px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.offer .pictures .mini {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer .pictures .mini > img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  opacity: 50%;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+.offer .pictures .mini > img:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.offer .informations {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background-color: white;
+  justify-content: space-between;
+}
+
+.offer .price {
+  font-size: 24px;
+  color: #111111;
+  margin-bottom: 30px;
+}
+
+.offer .detail {
+  display: flex;
+}
+.offer .detail > p {
+  width: 50%;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.offer .detail > p:first-of-type {
+  color: #999999;
+}
+
+.offer .detail > p:last-of-type {
+  color: #666666;
+  font-weight: bold;
+}
+
+.offer .border {
+  border-bottom: 1px solid rgb(0, 0, 0, 0.15);
+  margin: 45px 0px;
+}
+
+.offer .title {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.offer .description {
+  font-size: 16px;
+  color: #666666;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.offer .user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.offer .userpic {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.offer button {
+  background-color: #007681;
+  color: white;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+.offer button:hover {
+  cursor: pointer;
+}
+
+/* ----------RESPONSIVE------------- */
+/* ----------RESPONSIVE------------- */
+/* ----------RESPONSIVE------------- */
+
+@media (max-width: 1260px) {
+  /* .link {
+    width: 24%;
+  } */
+}
+@media (max-width: 1015px) {
+  .offer .pictures > img {
+    width: 300px;
+    height: 540px;
+    object-fit: cover;
+    margin-right: 5px;
+  }
+
+  .offer .pictures .mini {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .offer .pictures .mini > img {
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+
+  .offer .pictures {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 880px) {
+  .link {
+    width: 24%;
+  }
+}
+
+@media (max-width: 745px) {
+  .offer .informations {
+    width: 230px;
+
+    padding: 10px;
+  }
+
+  .link {
+    width: 30%;
+  }
+
+  .offer .container {
+    padding: 30px 0px;
+  }
 }

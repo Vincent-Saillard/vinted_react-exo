@@ -8,6 +8,7 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 header .logo {
@@ -63,5 +64,56 @@ header button {
   color: white;
   font-size: 12px;
   background-color: #007681;
-  border: none;
+  border: 1px solid #007681;
+}
+
+header .burger {
+  display: none;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+header .burger:hover {
+  background-color: #fafcfc;
+}
+
+header .burger > img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
+header button:hover,
+header .buttons:hover,
+header .logo:hover {
+  cursor: pointer;
+}
+
+/* ----------RESPONSIVE------------- */
+/* ----------RESPONSIVE------------- */
+/* ----------RESPONSIVE------------- */
+
+@media (max-width: 1260px) {
+  header .burger {
+    display: flex;
+  }
+
+  header .buttons,
+  header button {
+    display: none;
+  }
+}
+
+@media (max-width: 1015px) {
+  header .research {
+    flex: 1;
+    width: 100%;
+  }
+
+  header .inputs {
+    display: flex;
+    flex: 1;
+  }
 }

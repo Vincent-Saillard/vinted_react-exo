@@ -23,7 +23,7 @@ const App = () => {
         "https://lereacteur-vinted-api.herokuapp.com/offers"
       );
 
-      setData(response);
+      setData(response.data);
       setIsLoading(false);
     };
     fetchData();

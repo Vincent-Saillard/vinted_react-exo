@@ -1,5 +1,6 @@
 import logo from "../../assets/img/logo.png";
 import glass from "../../assets/img/glass.png";
+import burger from "../../assets/img/burger.png";
 import { Link } from "react-router-dom";
 
 import "../Header/Header.css";
@@ -25,6 +26,9 @@ const Header = () => {
             <p className="buttons">Se connecter</p>
           </div>
           <button className="sell">Vends tes articles</button>
+          <div className="burger">
+            <img src={burger} alt="burger menu" />
+          </div>
         </div>
       </header>
     </>
