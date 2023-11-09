@@ -21,6 +21,8 @@ const Home = ({
   const [errorMissing, setErrorMissing] = useState(false);
   // state to display message is mail is already in db
   const [errorExisting, setErrorExisting] = useState(false);
+  // state of checkbox label
+  const [check, setCheck] = useState(false);
 
   // fonction on Register submission
   const handleSubmitRegister = (event) => {
@@ -172,6 +174,7 @@ const Home = ({
                   type="text"
                   placeholder="Nom d'utilisateur"
                   name="username"
+                  className="username"
                   onChange={(event) => {
                     const value = event.target.value;
                     setUsername(value);
@@ -182,6 +185,7 @@ const Home = ({
                   type="email"
                   placeholder="Email"
                   name="email"
+                  className="email"
                   value={email}
                   onChange={(event) => {
                     const value = event.target.value;
@@ -192,6 +196,7 @@ const Home = ({
                   type="password"
                   placeholder="Mot de passe"
                   name="password"
+                  className="password"
                   value={password}
                   onChange={(event) => {
                     const value = event.target.value;
@@ -209,21 +214,28 @@ const Home = ({
                   </p>
                 )}
                 <div>
-                  <label htmlFor="newsletter">
-                    S'inscrire à notre newsletter
-                  </label>
                   <input
                     id="newsletter"
                     type="checkbox"
                     name="checkbox"
+                    className="checkboxinput"
                     value={newsletter}
                     onChange={(event) => {
                       const value = event.target.value;
                       setNewsletter(!newsletter);
                     }}
                   />
+                  <label
+                    htmlFor="newsletter"
+                    onClick={() => {
+                      setCheck(!check);
+                    }}
+                  >
+                    <div className={`box ${check && "green"}`}></div>
+                    <p>S'inscrire à notre newsletter</p>
+                  </label>
                 </div>
-                <p>
+                <p className="conditions">
                   En m'inscrivant je confirme avoir lu et accepté les Termes &
                   Conditions et Politique de Confidentialité de Vinted. Je
                   confirme avoir au moins 18 ans.
@@ -263,6 +275,7 @@ const Home = ({
                   type="email"
                   placeholder="Email"
                   name="email"
+                  className="email"
                   value={email}
                   onChange={(event) => {
                     const value = event.target.value;
@@ -273,6 +286,7 @@ const Home = ({
                   type="password"
                   placeholder="Mot de passe"
                   name="password"
+                  className="password"
                   value={password}
                   onChange={(event) => {
                     const value = event.target.value;

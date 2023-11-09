@@ -292,17 +292,119 @@ main .offers .offerUnique {
   flex-direction: column;
   padding: 30px;
   width: 300px;
-  margin: 200px auto;
+  margin: 150px auto;
   border-radius: 10px;
   height: fit-content;
   /* box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5); */
 }
 
+.modal h2 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal .cross {
+  text-align: end;
+}
+.modal .cross:hover {
+  cursor: pointer;
+}
+
 .modal form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
+form .username,
+form .email,
+form .password {
+  height: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px rgb(255, 0, 0, 0.3) solid;
+  font-size: 16px;
+}
+
+form div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+form .checkboxinput {
+  display: none;
+}
+
+label {
+  position: relative;
+  /* border: 1px solid red; */
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+label .box {
+  position: absolute;
+  bottom: -2px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, 0.3);
+}
+
+form .green {
+  background-color: #007681;
+}
+
+label .box:hover {
+  box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
+}
+
+form .conditions {
+  font-size: 12px;
+  color: #666666;
+}
+
+form input:last-of-type {
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007681;
+  color: white;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+form input:last-of-type:hover {
+  cursor: pointer;
+}
+
+form > p:last-of-type {
+  font-size: 12px;
+  color: #007681;
+  text-align: center;
+}
+
+form > p:last-of-type:hover {
+  cursor: pointer;
+}
+
+form .onmissing,
+form .existing {
+  font-size: 14px;
+  color: red;
+}
 /* ----------RESPONSIVE------------- */
 /* ----------RESPONSIVE------------- */
 /* ----------RESPONSIVE------------- */

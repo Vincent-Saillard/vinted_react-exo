@@ -4,6 +4,16 @@ header {
 }
 
 header .container {
+  display: flex;
+  /* border: 1px solid red; */
+  flex-direction: column;
+}
+
+header .secondLine {
+  display: none;
+}
+
+header .firstLine {
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -47,7 +57,8 @@ header .connect {
   gap: 20px;
 }
 
-header .buttons {
+header .buttons,
+header .buttons2 {
   width: 115px;
   line-height: 30px;
   border: 1px solid #007681;
@@ -57,7 +68,8 @@ header .buttons {
   border-radius: 5px;
 }
 
-header .disconnect {
+header .disconnect,
+header .disconnect2 {
   width: 115px;
   line-height: 30px;
   border: 1px solid #c2175b;
@@ -69,13 +81,13 @@ header .disconnect {
 }
 
 header button {
-  height: 30px;
+  height: 32px;
   width: 115px;
   border-radius: 5px;
   color: white;
   font-size: 12px;
   background-color: #007681;
-  border: 1px solid #007681;
+  border: none;
 }
 
 header .burger {
@@ -84,6 +96,10 @@ header .burger {
   width: 40px;
   padding: 10px;
   border-radius: 5px;
+}
+
+header .light {
+  background-color: #fafcfc;
 }
 
 header .burger:hover {
@@ -112,8 +128,18 @@ header .logo:hover {
     display: flex;
   }
 
+  header .secondLine {
+    height: 60px;
+    /* border: 1px solid green; */
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
   header .buttons,
-  header button {
+  header button,
+  header .disconnect {
     display: none;
   }
 }
