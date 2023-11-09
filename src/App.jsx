@@ -61,12 +61,23 @@ const App = () => {
                 setConnectModal={setConnectModal}
                 registerModal={registerModal}
                 setRegisterModal={setRegisterModal}
-                tokenState={tokenState}
                 setTokenState={setTokenState}
               />
             }
           />
-          <Route path="/offer/:id" element={<Offer data={data} />} />
+          <Route
+            path="/offer/:id"
+            element={
+              <Offer
+                data={data}
+                setConnectModal={setConnectModal}
+                setRegisterModal={setRegisterModal}
+                setTokenState={setTokenState}
+                registerModal={registerModal}
+                connectModal={connectModal}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </Router>

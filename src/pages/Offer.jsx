@@ -1,10 +1,20 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import Register from "../components/Register";
+import Connect from "../components/Connect";
 
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
 
-const Offer = ({ data }) => {
+const Offer = ({
+  data,
+  setTokenState,
+  setRegisterModal,
+  setConnectModal,
+  registerModal,
+  connectModal,
+}) => {
   const { id } = useParams();
 
   // get index of object in data from id of params
@@ -145,6 +155,30 @@ const Offer = ({ data }) => {
           </Carousel> */}
         </div>
       </section>
+
+      {/*  Register Modal */}
+      {/*  Register Modal */}
+      {/*  Register Modal */}
+
+      {registerModal && (
+        <Register
+          setRegisterModal={setRegisterModal}
+          setTokenState={setTokenState}
+          setConnectModal={setConnectModal}
+        />
+      )}
+
+      {/*  Login Modal */}
+      {/*  Login Modal */}
+      {/*  Login Modal */}
+
+      {connectModal && (
+        <Connect
+          setConnectModal={setConnectModal}
+          setTokenState={setTokenState}
+          setRegisterModal={setRegisterModal}
+        />
+      )}
     </>
   );
 };
