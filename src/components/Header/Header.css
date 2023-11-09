@@ -57,6 +57,17 @@ header .buttons {
   border-radius: 5px;
 }
 
+header .disconnect {
+  width: 115px;
+  line-height: 30px;
+  border: 1px solid #c2175b;
+  text-align: center;
+  font-size: 12px;
+  background-color: #c2175b;
+  border-radius: 5px;
+  color: white;
+}
+
 header button {
   height: 30px;
   width: 115px;
@@ -85,6 +96,7 @@ header .burger > img {
   object-fit: cover;
 }
 
+header .disconnect:hover,
 header button:hover,
 header .buttons:hover,
 header .logo:hover {

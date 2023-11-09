@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
 
 // Pages
 import Home from "./pages/Home";
@@ -16,6 +17,14 @@ const App = () => {
   const [data, setData] = useState();
   // isLoading state allow us to know when answer from server has arrived
   const [isLoading, setIsLoading] = useState(true);
+  // register modal state
+  const [registerModal, setRegisterModal] = useState(false);
+  // connexion modal state
+  const [connectModal, setConnectModal] = useState(false);
+  // token state
+  const [tokenState, setTokenState] = useState(
+    Cookies.get("token") ? true : false
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,9 +43,29 @@ const App = () => {
   ) : (
     <>
       <Router>
-        <Header />
+        <Header
+          connectModal={connectModal}
+          setConnectModal={setConnectModal}
+          registerModal={registerModal}
+          setRegisterModal={setRegisterModal}
+          tokenState={tokenState}
+          setTokenState={setTokenState}
+        />
         <Routes>
-          <Route path="/" element={<Home data={data} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                data={data}
+                connectModal={connectModal}
+                setConnectModal={setConnectModal}
+                registerModal={registerModal}
+                setRegisterModal={setRegisterModal}
+                tokenState={tokenState}
+                setTokenState={setTokenState}
+              />
+            }
+          />
           <Route path="/offer/:id" element={<Offer data={data} />} />
         </Routes>
         <Footer />
