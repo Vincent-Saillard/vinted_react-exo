@@ -96,6 +96,11 @@ main .offers {
   text-decoration: none;
 }
 
+.offers a {
+  width: 19%;
+  text-decoration: none;
+}
+
 main .offers .offerUnique {
   display: flex;
   flex-direction: column;
@@ -157,6 +162,10 @@ main .offers .offerUnique {
   color: #999999;
   margin-left: 10px;
   margin-bottom: 5px;
+}
+
+.offers a {
+  text-decoration: none;
 }
 
 /* ----------OFFER------------- */
@@ -453,7 +462,8 @@ form .existing {
 }
 
 @media (max-width: 880px) {
-  .link {
+  .link,
+  .offers a {
     width: 24%;
   }
 }
@@ -465,7 +475,8 @@ form .existing {
     padding: 10px;
   }
 
-  .link {
+  .link,
+  .offers a {
     width: 32%;
   }
 
@@ -475,7 +486,8 @@ form .existing {
 }
 
 @media (max-width: 550px) {
-  .link {
+  .link,
+  .offers a {
     width: 48%;
   }
 

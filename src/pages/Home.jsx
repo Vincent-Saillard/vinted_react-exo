@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import Cookies from "js-cookie";
 
 import Connect from "../components/Connect";
 import Register from "../components/Register";
@@ -35,40 +32,77 @@ const Home = ({
 
           <section className="offers">
             {data.offers.map((offer) => {
-              return (
-                <Link
-                  to={`/Offer/${offer._id}`}
-                  className="link"
-                  key={offer._id}
-                >
-                  <div className="offerUnique">
-                    <div className="user">
-                      {offer.owner.account.avatar ? (
-                        <img
-                          src={offer.owner.account.avatar.secure_url}
-                          alt="profile picture"
-                        />
-                      ) : (
-                        <div>?</div>
-                      )}
+              if (offer.owner.account.avatar) {
+                return (
+                  <Link
+                    to={`/Offer/${offer._id}`}
+                    className="link"
+                    key={offer._id}
+                  >
+                    <div className="offerUnique">
+                      <div className="user">
+                        {offer.owner.account.avatar ? (
+                          <img
+                            src={offer.owner.account.avatar.secure_url}
+                            alt="profile picture"
+                          />
+                        ) : (
+                          <div>?</div>
+                        )}
 
-                      <p>{offer.owner.account.username}</p>
+                        <p>{offer.owner.account.username}</p>
+                      </div>
+                      <img
+                        src={offer.product_image.secure_url}
+                        alt={offer.product_description}
+                        className="productpic"
+                      />
+                      <p className="price">{`${offer.product_price.toFixed(
+                        1
+                      )} €`}</p>
+                      {offer.product_details[1].TAILLE ? (
+                        <p className="size">
+                          {offer.product_details[1].TAILLE}
+                        </p>
+                      ) : null}
+                      <p className="brand">{offer.product_details[0].MARQUE}</p>
                     </div>
-                    <img
-                      src={offer.product_image.secure_url}
-                      alt={offer.product_description}
-                      className="productpic"
-                    />
-                    <p className="price">{`${offer.product_price.toFixed(
-                      1
-                    )} €`}</p>
-                    {offer.product_details[1].TAILLE ? (
-                      <p className="size">{offer.product_details[1].TAILLE}</p>
-                    ) : null}
-                    <p className="brand">{offer.product_details[0].MARQUE}</p>
-                  </div>
-                </Link>
-              );
+                  </Link>
+                );
+              } else {
+                return (
+                  <a href="https://filmschoolrejects.com/wp-content/uploads/2019/08/itsatrap-2.jpg">
+                    <div className="offerUnique">
+                      <div className="user">
+                        {offer.owner.account.avatar ? (
+                          <img
+                            src={offer.owner.account.avatar.secure_url}
+                            alt="profile picture"
+                          />
+                        ) : (
+                          <div>?</div>
+                        )}
+
+                        <p>{offer.owner.account.username}</p>
+                      </div>
+                      <img
+                        src={offer.product_image.secure_url}
+                        alt={offer.product_description}
+                        className="productpic"
+                      />
+                      <p className="price">{`${offer.product_price.toFixed(
+                        1
+                      )} €`}</p>
+                      {offer.product_details[1].TAILLE ? (
+                        <p className="size">
+                          {offer.product_details[1].TAILLE}
+                        </p>
+                      ) : null}
+                      <p className="brand">{offer.product_details[0].MARQUE}</p>
+                    </div>
+                  </a>
+                );
+              }
             })}
           </section>
         </div>
