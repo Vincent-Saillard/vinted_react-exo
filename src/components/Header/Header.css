@@ -229,3 +229,9 @@ header .logo:hover {
     flex: 1;
   }
 }
+
+@media (max-width: 880px) {
+  header .options {
+    flex-direction: column;
+  }
+}
