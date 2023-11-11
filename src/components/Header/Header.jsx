@@ -10,12 +10,12 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 
 const Header = ({
-  connectModal,
   setConnectModal,
-  registerModal,
   setRegisterModal,
   tokenState,
   setTokenState,
+  setSearchQuery,
+  searchQuery,
 }) => {
   // state for burger menu
   const [openBurger, setOpenBurger] = useState(false);
@@ -37,13 +37,19 @@ const Header = ({
             </div>
             <div className="inputs">
               <div className="research">
-                {" "}
                 <img
                   src={glass}
                   alt="magnifying glass grey"
                   className="glass"
                 />
-                <input type="text" placeholder="Recherche des articles" />
+                <input
+                  type="text"
+                  placeholder="Recherche des articles"
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    setSearchQuery(value);
+                  }}
+                />
               </div>
               <div className="options"></div>
             </div>

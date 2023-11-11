@@ -44,7 +44,9 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
           setRegisterModal(false);
         } catch (error) {
           console.log(error);
-          setErrorExisting(true);
+          if (error.response.data.message === "Bad Request") {
+            setErrorExisting(true);
+          }
         }
       };
       fetchData();
@@ -112,7 +114,7 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
                 type="checkbox"
                 name="checkbox"
                 className="checkboxinput"
-                value={newsletter}
+                checked={newsletter}
                 onChange={(event) => {
                   const value = event.target.value;
                   setNewsletter(!newsletter);

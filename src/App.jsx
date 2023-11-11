@@ -25,18 +25,28 @@ const App = () => {
   const [tokenState, setTokenState] = useState(
     Cookies.get("token") ? true : false
   );
+  // search bar input state
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
-      );
-
-      setData(response.data);
-      setIsLoading(false);
+      console.log(searchQuery);
+      if (searchQuery) {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchQuery}`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      } else {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers`
+        );
+        setData(response.data);
+        setIsLoading(false);
+      }
     };
     fetchData();
-  }, []);
+  }, [searchQuery]);
 
   return isLoading ? (
     <p>Your content is loading, please wait.</p>
@@ -44,12 +54,12 @@ const App = () => {
     <>
       <Router>
         <Header
-          connectModal={connectModal}
+          setSearchQuery={setSearchQuery}
           setConnectModal={setConnectModal}
-          registerModal={registerModal}
           setRegisterModal={setRegisterModal}
           tokenState={tokenState}
           setTokenState={setTokenState}
+          searchQuery={searchQuery}
         />
         <Routes>
           <Route
@@ -62,6 +72,7 @@ const App = () => {
                 registerModal={registerModal}
                 setRegisterModal={setRegisterModal}
                 setTokenState={setTokenState}
+                searchQuery={searchQuery}
               />
             }
           />

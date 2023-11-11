@@ -38,7 +38,9 @@ const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
           setConnectModal(false);
         } catch (error) {
           console.log(error);
-          setErrorExisting(true);
+          if (error.response.data.message === "Bad Request") {
+            setErrorExisting(true);
+          }
         }
       };
       fetchData();

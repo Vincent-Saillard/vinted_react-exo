@@ -10,6 +10,7 @@ const Home = ({
   registerModal,
   setRegisterModal,
   setTokenState,
+  searchQuery,
 }) => {
   return (
     <>
@@ -71,7 +72,10 @@ const Home = ({
                 );
               } else {
                 return (
-                  <a href="https://filmschoolrejects.com/wp-content/uploads/2019/08/itsatrap-2.jpg">
+                  <a
+                    href="https://filmschoolrejects.com/wp-content/uploads/2019/08/itsatrap-2.jpg"
+                    key={offer._id}
+                  >
                     <div className="offerUnique">
                       <div className="user">
                         {offer.owner.account.avatar ? (
