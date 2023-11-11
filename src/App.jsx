@@ -27,26 +27,37 @@ const App = () => {
   );
   // search bar input state
   const [searchQuery, setSearchQuery] = useState("");
+  // ordering filter state , false = ascendent, true = descendant
+  const [orderFilter, setOrderFilter] = useState(false);
+  let sorted = "price-asc";
+  if (orderFilter) {
+    sorted = "price-desc";
+  } else {
+    sorted = "price-asc";
+  }
+  // min value state starting at 10 by default
+  const [minSort, setMinSort] = useState(0);
+  // max value state starting at 100 by default
+  const [maxSort, setMaxSort] = useState(100);
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(searchQuery);
       if (searchQuery) {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${searchQuery}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&title=${searchQuery}&priceMin=${minSort}&priceMax=${maxSort}`
         );
         setData(response.data);
         setIsLoading(false);
       } else {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&priceMin=${minSort}&priceMax=${maxSort}`
         );
         setData(response.data);
         setIsLoading(false);
       }
     };
     fetchData();
-  }, [searchQuery]);
+  }, [searchQuery, orderFilter, minSort, maxSort]);
 
   return isLoading ? (
     <p>Your content is loading, please wait.</p>
@@ -59,7 +70,12 @@ const App = () => {
           setRegisterModal={setRegisterModal}
           tokenState={tokenState}
           setTokenState={setTokenState}
-          searchQuery={searchQuery}
+          setOrderFilter={setOrderFilter}
+          orderFilter={orderFilter}
+          setMinSort={setMinSort}
+          setMaxSort={setMaxSort}
+          minSort={minSort}
+          maxSort={maxSort}
         />
         <Routes>
           <Route

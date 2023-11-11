@@ -15,7 +15,12 @@ const Header = ({
   tokenState,
   setTokenState,
   setSearchQuery,
-  searchQuery,
+  setOrderFilter,
+  orderFilter,
+  setMinSort,
+  setMaxSort,
+  minSort,
+  maxSort,
 }) => {
   // state for burger menu
   const [openBurger, setOpenBurger] = useState(false);
@@ -51,7 +56,62 @@ const Header = ({
                   }}
                 />
               </div>
-              <div className="options"></div>
+              <div className="options">
+                <div className="desc">
+                  <label htmlFor="order">
+                    <p>Trier par prix :</p>
+                    <div className="slide">
+                      {orderFilter ? (
+                        <div
+                          className={`symbol ${orderFilter ? "right" : "left"}`}
+                        >
+                          ↡
+                        </div>
+                      ) : (
+                        <div
+                          className={`symbol ${orderFilter ? "right" : "left"}`}
+                        >
+                          ↟
+                        </div>
+                      )}
+                    </div>
+                  </label>
+                  <input
+                    type="checkbox"
+                    id="order"
+                    onChange={() => {
+                      setOrderFilter(!orderFilter);
+                      console.log(orderFilter);
+                    }}
+                  />
+                </div>
+                <div className="minmax">
+                  <div className="min">
+                    <label htmlFor="min">{`${minSort}`}</label>
+                    <input
+                      type="text"
+                      id="min"
+                      onChange={(event) => {
+                        const min = event.target.value;
+                        setMinSort(min);
+                        console.log(minSort);
+                      }}
+                    />
+                  </div>
+                  <div className="max">
+                    <label htmlFor="max">{`${maxSort}`}</label>
+                    <input
+                      type="text"
+                      id="max"
+                      onChange={(event) => {
+                        const max = event.target.value;
+                        setMaxSort(max);
+                        console.log(maxSort);
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="connect">
               {tokenState ? null : (
