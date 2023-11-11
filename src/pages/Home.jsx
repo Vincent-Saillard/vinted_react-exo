@@ -11,7 +11,9 @@ const Home = ({
   setRegisterModal,
   setTokenState,
   searchQuery,
+  setOnHome,
 }) => {
+  setOnHome(true);
   return (
     <>
       <main>

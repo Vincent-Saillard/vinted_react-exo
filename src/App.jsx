@@ -36,28 +36,39 @@ const App = () => {
     sorted = "price-asc";
   }
   // min value state starting at 10 by default
-  const [minSort, setMinSort] = useState(0);
+  const [minSort, setMinSort] = useState(10);
   // max value state starting at 100 by default
   const [maxSort, setMaxSort] = useState(100);
+
+  // Slider component states
+  const [minValue, set_minValue] = useState(0);
+  const [maxValue, set_maxValue] = useState(100);
+  const handleInput = (e) => {
+    set_minValue(e.minValue);
+    set_maxValue(e.maxValue);
+  };
+
+  // state on home page or not
+  const [onHome, setOnHome] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       if (searchQuery) {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&title=${searchQuery}&priceMin=${minSort}&priceMax=${maxSort}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&title=${searchQuery}&priceMin=${minValue}&priceMax=${maxValue}`
         );
         setData(response.data);
         setIsLoading(false);
       } else {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&priceMin=${minSort}&priceMax=${maxSort}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sorted}&priceMin=${minValue}&priceMax=${maxValue}`
         );
         setData(response.data);
         setIsLoading(false);
       }
     };
     fetchData();
-  }, [searchQuery, orderFilter, minSort, maxSort]);
+  }, [searchQuery, orderFilter, minValue, maxValue]);
 
   return isLoading ? (
     <p>Your content is loading, please wait.</p>
@@ -76,6 +87,12 @@ const App = () => {
           setMaxSort={setMaxSort}
           minSort={minSort}
           maxSort={maxSort}
+          minValue={minValue}
+          maxValue={maxValue}
+          set_minValue={set_minValue}
+          set_maxValue={set_maxValue}
+          handleInput={handleInput}
+          onHome={onHome}
         />
         <Routes>
           <Route
@@ -89,6 +106,7 @@ const App = () => {
                 setRegisterModal={setRegisterModal}
                 setTokenState={setTokenState}
                 searchQuery={searchQuery}
+                setOnHome={setOnHome}
               />
             }
           />
@@ -102,6 +120,7 @@ const App = () => {
                 setTokenState={setTokenState}
                 registerModal={registerModal}
                 connectModal={connectModal}
+                setOnHome={setOnHome}
               />
             }
           />

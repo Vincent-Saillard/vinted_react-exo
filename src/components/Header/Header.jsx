@@ -9,6 +9,8 @@ import Cookies from "js-cookie";
 
 import { useState } from "react";
 
+import Slider from "../Slider";
+
 const Header = ({
   setConnectModal,
   setRegisterModal,
@@ -21,6 +23,12 @@ const Header = ({
   setMaxSort,
   minSort,
   maxSort,
+  minValue,
+  maxValue,
+  set_minValue,
+  set_maxValue,
+  handleInput,
+  onHome,
 }) => {
   // state for burger menu
   const [openBurger, setOpenBurger] = useState(false);
@@ -56,62 +64,55 @@ const Header = ({
                   }}
                 />
               </div>
-              <div className="options">
-                <div className="desc">
-                  <label htmlFor="order">
-                    <p>Trier par prix :</p>
-                    <div className="slide">
-                      {orderFilter ? (
-                        <div
-                          className={`symbol ${orderFilter ? "right" : "left"}`}
-                        >
-                          ↡
+
+              {onHome && (
+                <>
+                  <div className="options">
+                    <div className="desc">
+                      <label htmlFor="order">
+                        <p>Trier par prix :</p>
+                        <div className="slide">
+                          {orderFilter ? (
+                            <div
+                              className={`symbol ${
+                                orderFilter ? "right" : "left"
+                              }`}
+                            >
+                              ↡
+                            </div>
+                          ) : (
+                            <div
+                              className={`symbol ${
+                                orderFilter ? "right" : "left"
+                              }`}
+                            >
+                              ↟
+                            </div>
+                          )}
                         </div>
-                      ) : (
-                        <div
-                          className={`symbol ${orderFilter ? "right" : "left"}`}
-                        >
-                          ↟
-                        </div>
-                      )}
+                      </label>
+                      <input
+                        type="checkbox"
+                        id="order"
+                        onChange={() => {
+                          setOrderFilter(!orderFilter);
+                          console.log(orderFilter);
+                        }}
+                      />
                     </div>
-                  </label>
-                  <input
-                    type="checkbox"
-                    id="order"
-                    onChange={() => {
-                      setOrderFilter(!orderFilter);
-                      console.log(orderFilter);
-                    }}
-                  />
-                </div>
-                <div className="minmax">
-                  <div className="min">
-                    <label htmlFor="min">{`${minSort}`}</label>
-                    <input
-                      type="text"
-                      id="min"
-                      onChange={(event) => {
-                        const min = event.target.value;
-                        setMinSort(min);
-                        console.log(minSort);
-                      }}
-                    />
-                  </div>
-                  <div className="max">
-                    <label htmlFor="max">{`${maxSort}`}</label>
-                    <input
-                      type="text"
-                      id="max"
-                      onChange={(event) => {
-                        const max = event.target.value;
-                        setMaxSort(max);
-                        console.log(maxSort);
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+                    <div className="minmax">
+                      <p>Prix entre :</p>
+                      <Slider
+                        minValue={minValue}
+                        maxValue={maxValue}
+                        set_minValue={set_minValue}
+                        set_maxValue={set_maxValue}
+                        handleInput={handleInput}
+                      />
+                    </div>
+                  </div>{" "}
+                </>
+              )}
             </div>
             <div className="connect">
               {tokenState ? null : (
