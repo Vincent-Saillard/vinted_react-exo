@@ -93,11 +93,18 @@ const Offer = ({
               </p>
 
               <div className="user">
-                <img
-                  src={data.offers[index].owner.account.avatar.secure_url}
-                  alt="user profile picture"
-                  className="userpic"
-                />
+                {data.offers[index].owner.account.avatar ? (
+                  <img
+                    src={data.offers[index].owner.account.avatar.secure_url}
+                    alt="user profile picture"
+                    className="userpic"
+                  />
+                ) : (
+                  <div className="usernopic">
+                    {data.offers[index].owner.account.username[0].toUpperCase()}
+                  </div>
+                )}
+
                 <p className="username">
                   {data.offers[index].owner.account.username}
                 </p>

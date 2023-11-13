@@ -1,0 +1,158 @@
+.publish {
+  background-color: #ebedee;
+  display: flex;
+}
+
+.publish .container {
+  /* border: 1px solid red; */
+  padding: 30px 20px;
+}
+
+.publish h1 {
+  font-size: 24px;
+}
+
+.publish form {
+  /* border: 1px solid green; */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.publish .blockform {
+  background-color: white;
+  border: 1px solid #d9dadb;
+  display: flex;
+  flex-direction: column;
+}
+
+.publish .blockform:first-of-type {
+  padding: 20px;
+}
+
+.publish .borders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 20px; */
+  border: 1px solid #d9dadb;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  gap: 10px;
+}
+
+.publish .picBlock {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  overflow: scroll hidden;
+  height: 160px;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.publish .cloudinaryPic {
+  height: 100%;
+  width: 120px;
+}
+
+.publish .plus {
+  font-size: 30px;
+}
+.publish .productPic {
+  width: fit-content;
+  border: 1px solid #007681;
+  border-radius: 5px;
+  color: #007681;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 10px;
+}
+
+.publish .line {
+  border-bottom: 1px solid #d9dadb;
+}
+
+.publish .inline {
+  display: flex;
+  padding: 20px;
+}
+.publish .inline > label,
+.publish .inline > input {
+  flex: 1;
+}
+
+.publish .inline > label {
+  /* border: 1px solid blue; */
+  justify-content: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.publish .inline > input {
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #d9dadb;
+  color: black;
+}
+
+.publish .empty {
+  width: 50%;
+}
+.publish .exchange {
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.publish .exchange > input {
+  height: 25px;
+  width: 25px;
+}
+
+.publish #description {
+  width: 49.5%;
+  min-height: 100px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #d9dadb;
+  resize: none;
+}
+
+.publish .last {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.publish .submit {
+  margin-top: 40px;
+  height: 40px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: #007681;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+}
+
+.publish .error-message {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}

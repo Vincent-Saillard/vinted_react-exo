@@ -1,6 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
   // form states
@@ -10,7 +11,8 @@ const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
   const [errorMissing, setErrorMissing] = useState(false);
   // state to display message is mail is already in db
   const [errorExisting, setErrorExisting] = useState(false);
-  // state of checkbox label
+
+  const navigate = useNavigate();
 
   // function on Connect submission
   const handleSubmitConnect = (event) => {
@@ -31,10 +33,11 @@ const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
           );
 
           const token = response.data.token;
-          setTokenState(true);
+          setTokenState(token);
           Cookies.set("token", token, { expires: 7 });
           setErrorMissing(false);
           setErrorExisting(false);
+          navigate("/publish");
           setConnectModal(false);
         } catch (error) {
           console.log(error);

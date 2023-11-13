@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Connect from "../components/Connect";
 import Register from "../components/Register";
@@ -10,10 +10,12 @@ const Home = ({
   registerModal,
   setRegisterModal,
   setTokenState,
+  tokenState,
   searchQuery,
   setOnHome,
 }) => {
   setOnHome(true);
+  const navigate = useNavigate();
   return (
     <>
       <main>
@@ -30,85 +32,54 @@ const Home = ({
         <div className="container">
           <div className="blocktext">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button>Commencer à vendre</button>
+            <button
+              onClick={() => {
+                // if user is connected with token go to Publish page , if not connect modal on
+                tokenState ? navigate("/Publish") : setConnectModal(true);
+              }}
+            >
+              Commencer à vendre
+            </button>
           </div>
 
           <section className="offers">
             {data.offers.map((offer) => {
-              if (offer.owner.account.avatar) {
-                return (
-                  <Link
-                    to={`/Offer/${offer._id}`}
-                    className="link"
-                    key={offer._id}
-                  >
-                    <div className="offerUnique">
-                      <div className="user">
-                        {offer.owner.account.avatar ? (
-                          <img
-                            src={offer.owner.account.avatar.secure_url}
-                            alt="profile picture"
-                          />
-                        ) : (
-                          <div>?</div>
-                        )}
+              return (
+                <Link
+                  to={`/Offer/${offer._id}`}
+                  className="link"
+                  key={offer._id}
+                >
+                  <div className="offerUnique">
+                    <div className="user">
+                      {offer.owner.account.avatar ? (
+                        <img
+                          src={offer.owner.account.avatar.secure_url}
+                          alt="profile picture"
+                        />
+                      ) : (
+                        <div>
+                          {offer.owner.account.username[0].toUpperCase()}
+                        </div>
+                      )}
 
-                        <p>{offer.owner.account.username}</p>
-                      </div>
-                      <img
-                        src={offer.product_image.secure_url}
-                        alt={offer.product_description}
-                        className="productpic"
-                      />
-                      <p className="price">{`${offer.product_price.toFixed(
-                        1
-                      )} €`}</p>
-                      {offer.product_details[1].TAILLE ? (
-                        <p className="size">
-                          {offer.product_details[1].TAILLE}
-                        </p>
-                      ) : null}
-                      <p className="brand">{offer.product_details[0].MARQUE}</p>
+                      <p>{offer.owner.account.username}</p>
                     </div>
-                  </Link>
-                );
-              } else {
-                return (
-                  <a
-                    href="https://filmschoolrejects.com/wp-content/uploads/2019/08/itsatrap-2.jpg"
-                    key={offer._id}
-                  >
-                    <div className="offerUnique">
-                      <div className="user">
-                        {offer.owner.account.avatar ? (
-                          <img
-                            src={offer.owner.account.avatar.secure_url}
-                            alt="profile picture"
-                          />
-                        ) : (
-                          <div>?</div>
-                        )}
-
-                        <p>{offer.owner.account.username}</p>
-                      </div>
-                      <img
-                        src={offer.product_image.secure_url}
-                        alt={offer.product_description}
-                        className="productpic"
-                      />
-                      <p className="price">{`${offer.product_price.toFixed(
-                        1
-                      )} €`}</p>
-                      {offer.product_details[1].TAILLE ? (
-                        <p className="size">
-                          {offer.product_details[1].TAILLE}
-                        </p>
-                      ) : null}
-                      <p className="brand">{offer.product_details[0].MARQUE}</p>
-                    </div>
-                  </a>
-                );
-              }
+                    <img
+                      src={offer.product_image.secure_url}
+                      alt={offer.product_description}
+                      className="productpic"
+                    />
+                    <p className="price">{`${offer.product_price.toFixed(
+                      1
+                    )} €`}</p>
+                    {offer.product_details[1].TAILLE ? (
+                      <p className="size">{offer.product_details[1].TAILLE}</p>
+                    ) : null}
+                    <p className="brand">{offer.product_details[0].MARQUE}</p>
+                  </div>
+                </Link>
+              );
             })}
           </section>
         </div>

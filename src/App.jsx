@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 // Pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Publish from "./pages/Publish";
 // Components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
@@ -22,9 +23,8 @@ const App = () => {
   // connexion modal state
   const [connectModal, setConnectModal] = useState(false);
   // token state
-  const [tokenState, setTokenState] = useState(
-    Cookies.get("token") ? true : false
-  );
+  const token = Cookies.get("token");
+  const [tokenState, setTokenState] = useState(token ? token : null);
   // search bar input state
   const [searchQuery, setSearchQuery] = useState("");
   // ordering filter state , false = ascendent, true = descendant
@@ -105,6 +105,7 @@ const App = () => {
                 registerModal={registerModal}
                 setRegisterModal={setRegisterModal}
                 setTokenState={setTokenState}
+                tokenState={tokenState}
                 searchQuery={searchQuery}
                 setOnHome={setOnHome}
               />
@@ -124,6 +125,16 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/publish"
+            element={
+              <Publish
+                setConnectModal={setConnectModal}
+                setOnHome={setOnHome}
+                tokenState={tokenState}
+              />
+            }
+          ></Route>
         </Routes>
         <Footer />
       </Router>

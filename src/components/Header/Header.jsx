@@ -2,7 +2,7 @@ import logo from "../../assets/img/logo.png";
 import glass from "../../assets/img/glass.png";
 import burger from "../../assets/img/burger.png";
 import cross from "../../assets/img/cross.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../Header/Header.css";
 import Cookies from "js-cookie";
@@ -32,6 +32,8 @@ const Header = ({
 }) => {
   // state for burger menu
   const [openBurger, setOpenBurger] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -142,14 +144,22 @@ const Header = ({
                   className="disconnect"
                   onClick={() => {
                     Cookies.remove("token");
-                    setTokenState(false);
+                    setTokenState(null);
                   }}
                 >
                   Se déconnecter
                 </p>
               )}
             </div>
-            <button className="sell">Vends tes articles</button>
+            <button
+              className="sell"
+              onClick={() => {
+                // if user is connected with token go to Publish page , if not connect modal on
+                tokenState ? navigate("/Publish") : setConnectModal(true);
+              }}
+            >
+              Vends tes articles
+            </button>
             <div className={`burger ${openBurger && "light"}`}>
               {!openBurger && (
                 <img
@@ -200,7 +210,7 @@ const Header = ({
                   className="disconnect2"
                   onClick={() => {
                     Cookies.remove("token");
-                    setTokenState(false);
+                    setTokenState(null);
                   }}
                 >
                   Se déconnecter

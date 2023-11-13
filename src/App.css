@@ -271,6 +271,18 @@ main .offers .offerUnique {
   margin-bottom: 20px;
 }
 
+.offer .usernopic {
+  height: 50px;
+  width: 50px;
+  background-color: #666666;
+  border-radius: 50%;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .offer .userpic {
   height: 50px;
   width: 50px;
@@ -338,9 +350,9 @@ main .offers .offerUnique {
   gap: 10px;
 }
 
-form .username,
-form .email,
-form .password {
+.modal form .username,
+.modal form .email,
+.modal form .password {
   height: 30px;
   border-top: none;
   border-left: none;
@@ -349,18 +361,18 @@ form .password {
   font-size: 16px;
 }
 
-form div:first-of-type {
+.modal form div:first-of-type {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
   align-items: center;
 }
 
-form .checkboxinput {
+.modal form .checkboxinput {
   display: none;
 }
 
-label {
+.modal label {
   position: relative;
   /* border: 1px solid red; */
   width: 100%;
@@ -369,11 +381,11 @@ label {
   margin-bottom: 10px;
 }
 
-label:hover {
+.modal label:hover {
   cursor: pointer;
 }
 
-label .box {
+.modal label .box {
   position: absolute;
   bottom: -2px;
   left: 0px;
@@ -384,20 +396,20 @@ label .box {
   box-shadow: 0px 0px 0px 2px rgb(0, 0, 0, 0.3);
 }
 
-form .green {
+.modal form .green {
   background-color: #007681;
 }
 
-label .box:hover {
+.modal label .box:hover {
   box-shadow: 0px 0px 0px 2px rgb(0, 0, 0);
 }
 
-form .conditions {
+.modal form .conditions {
   font-size: 12px;
   color: #666666;
 }
 
-form input:last-of-type {
+.modal form input:last-of-type {
   height: 45px;
   border-radius: 5px;
   border: none;
@@ -407,22 +419,22 @@ form input:last-of-type {
   margin-top: 30px;
   margin-bottom: 10px;
 }
-form input:last-of-type:hover {
+.modal form input:last-of-type:hover {
   cursor: pointer;
 }
 
-form > p:last-of-type {
+.modal form > p:last-of-type {
   font-size: 12px;
   color: #007681;
   text-align: center;
 }
 
-form > p:last-of-type:hover {
+.modal form > p:last-of-type:hover {
   cursor: pointer;
 }
 
-form .onmissing,
-form .existing {
+.modal form .onmissing,
+.modal form .existing {
   font-size: 14px;
   color: red;
 }
