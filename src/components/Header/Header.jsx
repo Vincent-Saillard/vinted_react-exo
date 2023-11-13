@@ -190,7 +190,7 @@ const Header = ({
 
           {/* burger menu activated  */}
           {openBurger && (
-            <>
+            <div className="intermediate">
               <div className="secondLine">
                 {tokenState ? null : (
                   <p
@@ -297,7 +297,7 @@ const Header = ({
                   </>
                 )}
               </div>
-            </>
+            </div>
           )}
         </div>
       </header>

@@ -80,6 +80,7 @@ header .desc {
   display: flex;
   /* border: 1px solid green; */
   align-items: center;
+  /* justify-content: center; */
   line-height: 20px;
   flex: 1;
 }
@@ -130,6 +131,12 @@ header .slider {
 header .connect {
   display: flex;
   gap: 20px;
+}
+
+header .intermediate {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
 }
 
 header .buttons,
@@ -235,6 +242,10 @@ header .smallScreens {
     flex: 1;
   } */
 
+  header .research {
+    width: 100%;
+  }
+
   header .bigScreens {
     display: none;
   }
@@ -244,6 +255,10 @@ header .smallScreens {
     padding: 20px;
 
     align-items: center;
+  }
+
+  header .minmax {
+    flex: 2;
   }
 }
 
