@@ -325,7 +325,7 @@ main .offers .offerUnique {
   flex-direction: column;
   padding: 30px;
   width: 300px;
-  margin: 150px auto;
+  margin: 120px auto;
   border-radius: 10px;
   height: fit-content;
   /* box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.5); */
@@ -350,6 +350,29 @@ main .offers .offerUnique {
   gap: 10px;
 }
 
+.modal .addAvatar {
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #007681;
+  color: #007681;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  gap: 20px;
+  font-weight: bold;
+}
+
+.modal .plus {
+  font-size: 30px;
+  margin-bottom: 4px;
+}
+
+.modal #avatar {
+  color: #c6c6c6;
+  font-style: italic;
+}
+
 .modal form .username,
 .modal form .email,
 .modal form .password {
@@ -372,7 +395,7 @@ main .offers .offerUnique {
   display: none;
 }
 
-.modal label {
+.modal label:not(.addAvatar) {
   position: relative;
   /* border: 1px solid red; */
   width: 100%;

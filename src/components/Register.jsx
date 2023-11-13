@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 
 const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
   // form states
+  const [avatar, setAvatar] = useState();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
 
     if (!username || !email || !password) {
       setErrorMissing(true);
-    } else {
+    } else if (!avatar) {
       const fetchData = async () => {
         try {
           const response = await axios.post(
@@ -33,6 +34,36 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
               password: password,
               newsletter: newsletter,
             }
+          );
+
+          alert("Bienvenue sur Vinted, votre compte est activé");
+          const token = response.data.token;
+          setTokenState(token);
+          Cookies.set("token", token, { expires: 7 });
+          setErrorMissing(false);
+          setErrorExisting(false);
+          setRegisterModal(false);
+        } catch (error) {
+          console.log(error);
+          if (error.response.data.message === "Bad Request") {
+            setErrorExisting(true);
+          }
+        }
+      };
+      fetchData();
+    } else {
+      const fetchData = async () => {
+        try {
+          const formData = new FormData();
+          formData.append("avatar", avatar);
+          formData.append("email", email);
+          formData.append("username", username);
+          formData.append("password", password);
+          formData.append("newsletter", newsletter);
+
+          const response = await axios.post(
+            "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+            formData
           );
 
           alert("Bienvenue sur Vinted, votre compte est activé");
@@ -67,6 +98,17 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
           </p>
           <h2>S'inscrire</h2>
           <form onSubmit={handleSubmitRegister}>
+            <label htmlFor="avatar" className="addAvatar">
+              <p className="plus">+</p>
+              <p>Ajoute ta photo</p>
+            </label>
+            <input
+              type="file"
+              id="avatar"
+              onChange={(event) => {
+                setAvatar(event.target.files[0]);
+              }}
+            />
             <input
               type="text"
               placeholder="Nom d'utilisateur"

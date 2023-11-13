@@ -73,6 +73,7 @@ header .desc label {
   /* border: 1px solid red; */
   width: 100%;
   display: flex;
+  align-items: center;
   /* margin-top: 10px; */
 }
 
@@ -80,8 +81,8 @@ header .desc {
   display: flex;
   /* border: 1px solid green; */
   align-items: center;
-  /* justify-content: center; */
-  line-height: 20px;
+  justify-content: center;
+  /* line-height: 20px; */
   flex: 1;
 }
 
@@ -258,7 +259,7 @@ header .smallScreens {
   }
 
   header .minmax {
-    flex: 2;
+    flex: 1.5;
   }
 }
 
