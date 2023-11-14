@@ -344,15 +344,18 @@ main .offers .offerUnique {
   border-radius: 50%;
 }
 
-.offer button {
+.offer .button {
   background-color: #007681;
   color: white;
   height: 35px;
   border-radius: 5px;
   border: none;
   font-size: 16px;
+  text-decoration: none;
+  line-height: 35px;
+  text-align: center;
 }
-.offer button:hover {
+.offer .button:hover {
   cursor: pointer;
 }
 

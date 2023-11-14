@@ -1,0 +1,99 @@
+.payment {
+  display: flex;
+  background-color: #ebedee;
+  height: 100vh;
+}
+
+.payment .container {
+  display: flex;
+  border: 1px solid red;
+  padding: 30px 20px;
+  justify-content: center;
+}
+
+.payment form {
+  background-color: white;
+  height: fit-content;
+  width: 600px;
+}
+
+.payment h1 {
+  font-size: 14px;
+  color: #b1b1b1;
+  padding: 10px 20px;
+}
+
+.payment .blockText {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment .inline {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #6d6d6d;
+}
+
+.payment .line {
+  border-bottom: 1px solid rgb(229, 229, 229);
+  margin: 20px 0px;
+}
+
+.payment .total {
+  font-weight: bold;
+  color: black;
+  margin: 10px 0px;
+}
+
+.payment .blockText > p :not(.succeedMessage) {
+  color: black;
+  margin-top: 20px;
+  line-height: 20px;
+}
+.payment .blockText span {
+  font-weight: bold;
+}
+
+.payment .blockCard {
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.2);
+  height: 35px;
+  padding: 10px;
+  /* display: flex; */
+}
+
+.payment #pay {
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.payment .pay {
+  background-color: #02c06d;
+}
+.payment .waiting {
+  background-color: #6d6d6d;
+}
+.payment .pay:hover {
+  cursor: pointer;
+}
+
+.payment .succeedMessage {
+  color: #02c06d;
+}
+
+/* -----------RESPONSIVE---------- */
+/* -----------RESPONSIVE---------- */
+/* -----------RESPONSIVE---------- */
+
+@media (max-width: 880px) {
+  .payment form {
+    width: 300px;
+  }
+}

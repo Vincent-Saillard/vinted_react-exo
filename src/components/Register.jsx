@@ -38,8 +38,10 @@ const Register = ({ setRegisterModal, setTokenState, setConnectModal }) => {
 
           alert("Bienvenue sur Vinted, votre compte est activé");
           const token = response.data.token;
+          const userId = response.data._id;
           setTokenState(token);
           Cookies.set("token", token, { expires: 7 });
+          Cookies.set("userId", userId, { expires: 7 });
           setErrorMissing(false);
           setErrorExisting(false);
           setRegisterModal(false);

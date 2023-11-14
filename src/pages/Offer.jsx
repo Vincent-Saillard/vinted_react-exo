@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import Register from "../components/Register";
 import Connect from "../components/Connect";
@@ -10,6 +10,7 @@ import Connect from "../components/Connect";
 const Offer = ({
   data,
   setTokenState,
+  tokenState,
   setRegisterModal,
   setConnectModal,
   registerModal,
@@ -24,6 +25,8 @@ const Offer = ({
 
   // state to determine url for main pic
   const [picLink, setPicLink] = useState(0);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -89,13 +92,24 @@ const Offer = ({
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => {
-                alert("Le produit a bien été ajouté à votre panier.");
-              }}
-            >
-              Acheter
-            </button>
+            {tokenState ? (
+              <Link
+                to="/payment"
+                state={{ data: data.offers[index] }}
+                className="button"
+              >
+                Acheter
+              </Link>
+            ) : (
+              <button
+                className="button"
+                onClick={() => {
+                  setConnectModal(true);
+                }}
+              >
+                Acheter
+              </button>
+            )}
           </div>
         </div>
       </section>

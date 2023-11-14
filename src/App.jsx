@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Publish from "./pages/Pusblish/Publish";
+import Payment from "./pages/Payement/Payment";
 // Components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
@@ -115,6 +116,7 @@ const App = () => {
                 setConnectModal={setConnectModal}
                 setRegisterModal={setRegisterModal}
                 setTokenState={setTokenState}
+                tokenState={tokenState}
                 registerModal={registerModal}
                 connectModal={connectModal}
               />
@@ -123,6 +125,10 @@ const App = () => {
           <Route
             path="/publish"
             element={<Publish tokenState={tokenState} />}
+          ></Route>
+          <Route
+            path="/payment"
+            element={<Payment tokenState={tokenState} />}
           ></Route>
         </Routes>
         <Footer />

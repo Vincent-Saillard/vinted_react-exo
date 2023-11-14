@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
   // form states
@@ -13,6 +13,7 @@ const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
   const [errorExisting, setErrorExisting] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   // function on Connect submission
   const handleSubmitConnect = (event) => {
@@ -31,13 +32,18 @@ const Connect = ({ setConnectModal, setTokenState, setRegisterModal }) => {
               password: password,
             }
           );
-
+          // console.log(response.data);
           const token = response.data.token;
+          const userId = response.data._id;
           setTokenState(token);
           Cookies.set("token", token, { expires: 7 });
+          Cookies.set("userId", userId, { expires: 7 });
           setErrorMissing(false);
           setErrorExisting(false);
-          navigate("/publish");
+
+          if (location.pathname.includes("Offer") === false) {
+            navigate("/publish");
+          }
           setConnectModal(false);
         } catch (error) {
           console.log(error);

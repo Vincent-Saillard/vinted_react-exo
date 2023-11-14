@@ -30,7 +30,7 @@ const Header = ({
 
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   return (
     <>
@@ -99,7 +99,7 @@ const Header = ({
                         id="order"
                         onChange={() => {
                           setOrderFilter(!orderFilter);
-                          console.log(orderFilter);
+                          // console.log(orderFilter);
                         }}
                       />
                     </div>
@@ -147,6 +147,7 @@ const Header = ({
                   className="disconnect"
                   onClick={() => {
                     Cookies.remove("token");
+                    Cookies.remove("userId");
                     setTokenState(null);
                   }}
                 >
@@ -216,6 +217,7 @@ const Header = ({
                     className="disconnect2"
                     onClick={() => {
                       Cookies.remove("token");
+                      Cookies.remove("userId");
                       setTokenState(null);
                     }}
                   >
@@ -276,7 +278,7 @@ const Header = ({
                           id="order"
                           onChange={() => {
                             setOrderFilter(!orderFilter);
-                            console.log(orderFilter);
+                            // console.log(orderFilter);
                           }}
                         />
                       </div>
