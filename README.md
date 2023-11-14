@@ -41,6 +41,37 @@ If you want to test it on your local server, install needed dependencies and use
 
 ### Functionalities
 
+- BIG SCREENS
+
+  - HOMEPAGE
+    ![Homepage](image.png)
+  - REGISTER MODAL
+    ![Register](image-1.png)
+  - CONNECT MODAL
+    ![Connect](image-2.png)
+  - PUBLISH PAGE
+    ![Publish](image-3.png)
+  - OFFER PAGE BY ID
+    ![Offer](image-4.png)
+  - PAYMENT PAGE
+    ![Payment](image-5.png)
+
+- SMALL SCREENS (example with Samsung Galaxy A51/71)
+  - HOMEPAGE burger menu closed
+    ![Home_bg-closed](image-6.png)
+  - HOMEPAGE burger menu opened
+    ![Home_bg-open](image-7.png)
+  - REGISTER MODAL
+    ![Register](image-8.png)
+  - CONNECT MODAL
+    ![Connect](image-9.png)
+  - PUBLISH PAGE
+    ![Publish](image-10.png)
+  - OFFER PAGE BY ID
+    ![Offer](image-11.png)
+  - PAYMENT PAGE
+    ![Offer](image-12.png)
+
 ## Authors
 
 Vincent Saillard
