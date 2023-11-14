@@ -74,6 +74,10 @@ const Publish = ({ tokenState }) => {
 
         console.log(response);
         setPictureFromCloudinary(response.data.product_pictures);
+        alert(
+          "Votre article a bien été ajouté, vous allez être redirigé vers la page d'accueil"
+        );
+        navigate("/");
       } catch (error) {
         console.log(error);
       }
@@ -90,15 +94,16 @@ const Publish = ({ tokenState }) => {
             <form onSubmit={handleSubmit}>
               <div className="blockform">
                 <div className="borders">
-                  {pictureFromCloudinary && (
+                  {console.log(picture)}
+                  {picture && (
                     <div className="picBlock">
-                      {pictureFromCloudinary.map((picture) => {
+                      {picture.map((obj, index) => {
                         return (
                           <img
-                            src={picture.secure_url}
-                            alt=""
+                            src={URL.createObjectURL(obj)}
+                            alt="image"
                             className="cloudinaryPic"
-                            key={picture.secure_url}
+                            key={index}
                           />
                         );
                       })}
@@ -113,7 +118,12 @@ const Publish = ({ tokenState }) => {
                     type="file"
                     multiple={true}
                     onChange={(event) => {
-                      setPicture(event.target.files[0]);
+                      const indexpicList = Object.keys(event.target.files);
+                      const newpicList = [];
+                      for (let i = 0; i < indexpicList.length; i++) {
+                        newpicList.push(event.target.files[i]);
+                      }
+                      setPicture(newpicList);
                     }}
                   />
                 </div>

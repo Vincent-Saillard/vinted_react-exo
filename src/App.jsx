@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 // Pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
-import Publish from "./pages/Publish";
+import Publish from "./pages/Pusblish/Publish";
 // Components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
@@ -35,10 +35,6 @@ const App = () => {
   } else {
     sorted = "price-asc";
   }
-  // min value state starting at 10 by default
-  const [minSort, setMinSort] = useState(10);
-  // max value state starting at 100 by default
-  const [maxSort, setMaxSort] = useState(100);
 
   // Slider component states
   const [minValue, set_minValue] = useState(0);
@@ -70,7 +66,7 @@ const App = () => {
   return isLoading ? (
     <>
       <div className="loading">
-        <div class="lds-ring">
+        <div className="lds-ring">
           <div></div>
           <div></div>
           <div></div>
@@ -90,10 +86,6 @@ const App = () => {
           setTokenState={setTokenState}
           setOrderFilter={setOrderFilter}
           orderFilter={orderFilter}
-          setMinSort={setMinSort}
-          setMaxSort={setMaxSort}
-          minSort={minSort}
-          maxSort={maxSort}
           minValue={minValue}
           maxValue={maxValue}
           set_minValue={set_minValue}
@@ -112,7 +104,6 @@ const App = () => {
                 setRegisterModal={setRegisterModal}
                 setTokenState={setTokenState}
                 tokenState={tokenState}
-                searchQuery={searchQuery}
               />
             }
           />

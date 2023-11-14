@@ -194,6 +194,8 @@ header .burger > img {
   width: 20px;
   object-fit: cover;
 }
+
+header .burger:hover,
 header .buttons2:hover,
 header .disconnect2:hover,
 header .disconnect:hover,

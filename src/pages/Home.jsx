@@ -11,7 +11,6 @@ const Home = ({
   setRegisterModal,
   setTokenState,
   tokenState,
-  searchQuery,
 }) => {
   const navigate = useNavigate();
   return (

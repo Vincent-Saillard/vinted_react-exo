@@ -54,13 +54,11 @@
   width: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .publish .cloudinaryPic {
   height: 100%;
   width: 120px;
+  object-fit: cover;
+  /* border: 1px solid red; */
 }
 
 .publish #productPic {
@@ -68,6 +66,7 @@
   width: 130px;
   overflow: hidden;
   color: #d9dadb;
+  display: none;
 }
 
 ::-webkit-file-upload-button {
@@ -91,6 +90,12 @@
   align-items: center;
   padding: 5px 10px;
   gap: 10px;
+}
+
+.publish #exchange:hover,
+.publish .submit:hover,
+.publish .productPic:hover {
+  cursor: pointer;
 }
 
 .publish #description {

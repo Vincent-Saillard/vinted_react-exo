@@ -25,24 +25,6 @@ const Offer = ({
   // state to determine url for main pic
   const [picLink, setPicLink] = useState(0);
 
-  // for carousel
-  // const responsive = {
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 3,
-  //     slidesToSlide: 3, // optional, default to 1.
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 2,
-  //     slidesToSlide: 2, // optional, default to 1.
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 1,
-  //     slidesToSlide: 1, // optional, default to 1.
-  //   },
-  // };
   return (
     <>
       <section className="offer">
@@ -115,51 +97,6 @@ const Offer = ({
               Acheter
             </button>
           </div>
-
-          {/* <Carousel
-            // swipeable={false}
-            // draggable={false}
-            // showDots={true}
-            responsive={responsive}
-            // ssr={true} // means to render carousel on server-side.
-            // infinite={true}
-            // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-            // autoPlaySpeed={1000}
-            // keyBoardControl={true}
-            // customTransition="all .5"
-            // transitionDuration={500}
-            // containerClass="carousel-container"
-            // removeArrowOnDeviceType={["tablet", "mobile"]}
-            // deviceType={this.props.deviceType}
-            // dotListClass="custom-dot-list-style"
-            // itemClass="carousel-item-padding-40-px"
-            className="carousel"
-          >
-            <div>
-              <img
-                src="https://images1.vinted.net/t/01_001e8_rHPV45mF1pD1sbmyWfaz6GbL/f800/1699447947.jpeg?s=349ebd96c63dcf4e452a1da25a749f03d393e779"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src="https://images1.vinted.net/t/01_001e8_rHPV45mF1pD1sbmyWfaz6GbL/f800/1699447947.jpeg?s=349ebd96c63dcf4e452a1da25a749f03d393e779"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src="https://images1.vinted.net/t/01_001e8_rHPV45mF1pD1sbmyWfaz6GbL/f800/1699447947.jpeg?s=349ebd96c63dcf4e452a1da25a749f03d393e779"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src="https://images1.vinted.net/t/01_001e8_rHPV45mF1pD1sbmyWfaz6GbL/f800/1699447947.jpeg?s=349ebd96c63dcf4e452a1da25a749f03d393e779"
-                alt=""
-              />
-            </div>
-          </Carousel> */}
         </div>
       </section>
 

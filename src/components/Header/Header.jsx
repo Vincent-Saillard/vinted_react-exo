@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 
 import { useState } from "react";
 
-import Slider from "../Slider";
+import Slider from "../Slider/Slider";
 
 const Header = ({
   setConnectModal,
@@ -19,10 +19,6 @@ const Header = ({
   setSearchQuery,
   setOrderFilter,
   orderFilter,
-  setMinSort,
-  setMaxSort,
-  minSort,
-  maxSort,
   minValue,
   maxValue,
   set_minValue,
