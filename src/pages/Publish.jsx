@@ -4,8 +4,7 @@ import axios from "axios";
 
 import "./Publish.css";
 
-const Publish = ({ setConnectModal, setOnHome, tokenState }) => {
-  setOnHome(false);
+const Publish = ({ tokenState }) => {
   const navigate = useNavigate();
 
   // states form

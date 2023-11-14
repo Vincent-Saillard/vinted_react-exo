@@ -14,10 +14,7 @@ const Offer = ({
   setConnectModal,
   registerModal,
   connectModal,
-  setOnHome,
 }) => {
-  setOnHome(false);
-
   const { id } = useParams();
 
   // get index of object in data from id of params

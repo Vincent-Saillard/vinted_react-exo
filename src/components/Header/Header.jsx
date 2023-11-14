@@ -2,7 +2,7 @@ import logo from "../../assets/img/logo.png";
 import glass from "../../assets/img/glass.png";
 import burger from "../../assets/img/burger.png";
 import cross from "../../assets/img/cross.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import "../Header/Header.css";
 import Cookies from "js-cookie";
@@ -28,12 +28,13 @@ const Header = ({
   set_minValue,
   set_maxValue,
   handleInput,
-  onHome,
 }) => {
   // state for burger menu
   const [openBurger, setOpenBurger] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   return (
     <>
@@ -70,7 +71,7 @@ const Header = ({
                 />
               </div>
 
-              {onHome && (
+              {location.pathname === "/" ? (
                 // sort options
                 <>
                   <div className="options">
@@ -118,7 +119,7 @@ const Header = ({
                     </div>
                   </div>
                 </>
-              )}
+              ) : null}
             </div>
 
             {/* buttons          */}
@@ -247,7 +248,7 @@ const Header = ({
                   />
                 </div>
 
-                {onHome && (
+                {location.pathname === "/" ? (
                   // sort options
                   <>
                     <div className="options">
@@ -295,7 +296,7 @@ const Header = ({
                       </div>
                     </div>
                   </>
-                )}
+                ) : null}
               </div>
             </div>
           )}

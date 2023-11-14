@@ -12,9 +12,7 @@ const Home = ({
   setTokenState,
   tokenState,
   searchQuery,
-  setOnHome,
 }) => {
-  setOnHome(true);
   const navigate = useNavigate();
   return (
     <>

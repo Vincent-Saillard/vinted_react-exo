@@ -48,9 +48,6 @@ const App = () => {
     set_maxValue(e.maxValue);
   };
 
-  // state on home page or not
-  const [onHome, setOnHome] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       if (searchQuery) {
@@ -71,7 +68,17 @@ const App = () => {
   }, [searchQuery, orderFilter, minValue, maxValue]);
 
   return isLoading ? (
-    <p>Your content is loading, please wait.</p>
+    <>
+      <div className="loading">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <p>Your content is loading, please wait.</p>
+      </div>
+    </>
   ) : (
     <>
       <Router>
@@ -92,7 +99,6 @@ const App = () => {
           set_minValue={set_minValue}
           set_maxValue={set_maxValue}
           handleInput={handleInput}
-          onHome={onHome}
         />
         <Routes>
           <Route
@@ -107,7 +113,6 @@ const App = () => {
                 setTokenState={setTokenState}
                 tokenState={tokenState}
                 searchQuery={searchQuery}
-                setOnHome={setOnHome}
               />
             }
           />
@@ -121,19 +126,12 @@ const App = () => {
                 setTokenState={setTokenState}
                 registerModal={registerModal}
                 connectModal={connectModal}
-                setOnHome={setOnHome}
               />
             }
           />
           <Route
             path="/publish"
-            element={
-              <Publish
-                setConnectModal={setConnectModal}
-                setOnHome={setOnHome}
-                tokenState={tokenState}
-              />
-            }
+            element={<Publish tokenState={tokenState} />}
           ></Route>
         </Routes>
         <Footer />
