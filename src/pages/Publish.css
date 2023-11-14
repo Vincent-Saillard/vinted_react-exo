@@ -93,6 +93,10 @@
   gap: 10px;
 }
 
+.publish #description {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .publish .line {
   border-bottom: 1px solid #d9dadb;
 }
@@ -169,4 +173,14 @@
   color: red;
   font-size: 14px;
   font-weight: bold;
+}
+
+/* --------------RESPONSIVE----------- */
+/* --------------RESPONSIVE----------- */
+/* --------------RESPONSIVE----------- */
+
+@media (max-width: 880px) {
+  .publish .picBlock {
+    flex-direction: column;
+  }
 }
