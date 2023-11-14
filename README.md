@@ -78,7 +78,9 @@ Vincent Saillard
 
 - https://www.linkedin.com/in/vincent-saillard-096255a7/
 - https://github.com/Vincent-Saillard
-  Le Reacteur
+
+Le Reacteur
+
 - https://www.lereacteur.io/
 
 ## Acknowledgments
